@@ -1,0 +1,32 @@
+<aside>
+    <div id="sidebar" class="nav-collapse ">
+      <!-- sidebar menu start-->
+      <ul class="sidebar-menu" id="nav-accordion">
+          <p class="centered"><a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
+          <h5 class="centered">Sam Soffes</h5>
+        <li class="mt">
+          <a <% if(pageId == 'home') { %> class="active" <% } %> href="/home">
+            <i class="fa fa-dashboard"></i>
+            <span>Dashboard</span>
+            </a>
+        </li>
+        <li class="sub-menu">
+          <a  <% if(['add_photos'].includes(pageId)) { %> class="active" <% } %> href="javascript:;">
+            <i class="fa fa-desktop"></i>
+            <span>Edit</span>
+            </a>
+          <ul class="sub">
+            <li <% if(pageId == 'add_photos') { %> class="active" <% } %> ><a href="/addPhotos">Add Photoss</a></li>
+            <li <% if(pageId == 'edit_profile') { %> class="active" <% } %> ><a href="/editProfile">Edit Profile</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="google_maps.html">
+            <i class="fa fa-map-marker"></i>
+            <span>Google Maps </span>
+            </a>
+        </li>
+      </ul>
+      <!-- sidebar menu end-->
+    </div>
+  </aside>

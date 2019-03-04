@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<% include partials/template/tem_head.ejs %>
+
+<body>
+  <section id="container">
+
+    <!--header start-->
+    <% include partials/template/tem_header.ejs %>
+    <!--header end-->
+
+    <!--sidebar start-->
+    <% include partials/template/tem_sidebar.ejs %>
+    <!--sidebar end-->
+
+    <!--main content start-->
+    <section id="main-content">
+      <section class="wrapper site-min-height">
+        <h3><i class="fa fa-angle-right"></i> Gallery</h3>
+        <hr>
+        <div class="row mt">
+            <% if(images.length > 0) { %>
+              <%  for(i=0; i<images.length; i++) { %>
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 desc">
+            <div class="project-wrapper">
+              <div class="project">
+                <div class="photo-wrapper">
+                  <div class="photo">
+                    <a class="fancybox" href="/uploads/<%= images[i] %>"><img class="img-responsive" src="/uploads/<%= images[i] %>" alt=""></a>
+                  </div>
+                  <div class="overlay"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <%  } %>
+          <% } %>
+          <!-- col-lg-4 -->
+         
+        </div>
+      
+        <!-- /row -->
+      </section>
+      <!-- /wrapper -->
+    </section>
+    <!--main content end-->
+    <!--footer start-->
+    <footer class="site-footer">
+      <div class="text-center">
+        <p>
+          &copy; Copyrights <strong>Abhi</strong>. All Rights Reserved
+        </p>
+        <a href="index.html#" class="go-top">
+          <i class="fa fa-angle-up"></i>
+          </a>
+      </div>
+    </footer>
+    <!--footer end-->
+  </section>
+  <!-- js placed at the end of the document so the pages load faster -->
+  <% include partials/template/tem_footerScripts.ejs %>
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+{
+  "name": "admin-node-mysql",
+  "version": "1.0.0",
+  "description": "Node mysql admin panel",
+  "main": "login.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Abhi",
+  "license": "ISC"
+}

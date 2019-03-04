@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<% include partials/template/tem_head.ejs %>
+
+<body>
+  <!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+  <div id="login-page">
+    <div class="container">
+        <section class="wrapper">
+            <div class="row mt">
+                <div class="col-md-offset-3  col-md-9 col-sm-12">
+                <h3><i class="fa fa-angle-right"></i> Sign Up</h3>
+            <div id="message"></div>
+            <form class="contact-form php-mail-form" id="userForm" role="form" action="/addUser/processAddUser" method="POST">
+
+                <div class="form-group">
+                <input type="name" name="fname" class="form-control" id="first-name" placeholder="First Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" >
+                <div class="validate"></div>
+                </div>
+                <div class="form-group">
+                <input type="name" name="lname" class="form-control" id="last-name" placeholder="Last Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" >
+                <div class="validate"></div>
+                </div>
+                <div class="form-group">
+                <input type="email" name="email" class="form-control" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email">
+                <div class="validate"></div>
+                </div>
+                <div class="form-group">
+                <input type="password" name="password" class="form-control" id="password" placeholder="Your Password" data-rule="minlen:4" data-msg="Please enter a valid password">
+                <div class="validate"></div>
+                </div>
+                <div class="form-group">
+                <input type="password" name="cpassword" class="form-control" id="cpassword" placeholder="Confirm Password" data-rule="minlen:4" data-msg="Please enter a valid password">
+                <div class="validate"></div>
+                </div>
+                <div class="form-group">
+                <input type="text" name="phone" class="form-control" id="phone" placeholder="Mobile" data-rule="minlen:10" data-msg="Please enter at least 4 chars" >
+                <div class="validate"></div>
+                </div>
+
+                <div class="form-group">
+                <textarea class="form-control" name="message" id="contact-message" placeholder="Your Message" rows="5"  data-msg="Please write something for us"></textarea>
+                <div class="validate"></div>
+                </div>
+
+                <div class="loading"></div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+
+                <div class="form-send">
+                <button type="submit" class="btn btn-large btn-primary">Register</button>
+                </div>
+
+            </form>
+            </div>
+        </div>
+        <!-- /row -->
+
+
+        <!-- /row -->
+        </section>
+    </div>
+  </div>
+  <!-- js placed at the end of the document so the pages load faster -->
+  <script src="/lib/jquery/jquery.min.js"></script>
+  <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+  <script src="/js/customAddValidation.js"></script>
+  <!--BACKSTRETCH-->
+  <!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
+  <script type="text/javascript" src="/lib/jquery.backstretch.min.js"></script>
+  <script>
+    $.backstretch("img/login-bg.jpg", {
+      speed: 500
+    });
+  </script>
+</body>
+
+</html>

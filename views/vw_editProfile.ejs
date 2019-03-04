@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<% include partials/template/tem_head.ejs %>
+
+<body>
+  <section id="container">
+
+    <!--header start-->
+    <% include partials/template/tem_header.ejs %>
+    <!--header end-->
+
+    <!--sidebar start-->
+    <% include partials/template/tem_sidebar.ejs %>
+    <!--sidebar end-->
+
+    <!--main content start-->
+    <section id="main-content">
+      <section class="wrapper site-min-height">
+        <h3><i class="fa fa-angle-right"></i> Edit Profile</h3>
+        <hr>
+        <div class="row mt">
+          <div class="col-lg-12">
+            <div class="form-panel">
+              <div class="form">
+                <form class="cmxform form-horizontal style-form" id="signupForm" method="get" action="">
+                  <div class="form-group ">
+                    <label for="firstname" class="control-label col-lg-2">Firstname</label>
+                    <div class="col-lg-10">
+                      <input class=" form-control" id="fname" name="fname" type="text" />
+                    </div>
+                  </div>
+                  <div class="form-group ">
+                    <label for="lastname" class="control-label col-lg-2">Lastname</label>
+                    <div class="col-lg-10">
+                      <input class=" form-control" id="lname" name="lname" type="text" />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-md-2">DOB</label>
+                    <div class="col-md-3 col-xs-11">
+                      <div data-date-viewmode="years" data-date-format="dd-mm-yyyy" data-date="" class="input-append date dpYears">
+                        <input type="text" id="dob" name="dob" readonly="" value="" size="16" class="form-control">
+                        <span class="input-group-btn add-on">
+                          <button class="btn btn-theme" type="button"><i class="fa fa-calendar"></i></button>
+                          </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group ">
+                    <label for="username" class="control-label col-lg-2">Phone</label>
+                    <div class="col-lg-10">
+                      <input class="form-control " id="phone" name="phone" type="text" />
+                    </div>
+                  </div>
+                  <div class="form-group ">
+                    <label for="password" class="control-label col-lg-2">Email</label>
+                    <div class="col-lg-10">
+                      <input class="form-control " id="email" name="email" type="password" />
+                    </div>
+                  </div>
+                  <div class="form-group ">
+                    <label for="confirm_password" class="control-label col-lg-2">Address</label>
+                    <div class="col-lg-10">
+                      <textarea class="form-control " id="address" name="address" type="email" ></textarea>
+                    </div>
+                  </div>
+                  <div class="form-group ">
+                    <label for="email" class="control-label col-lg-2">Description</label>
+                    <div class="col-lg-10">
+                      <textarea class="form-control " id="desc" name="desc" type="email" ></textarea>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-lg-offset-2 col-lg-10">
+                      <button class="btn btn-theme" type="submit" id="submit">Save</button>
+                      <button class="btn btn-theme04" type="button" id="cancel">Cancel</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <!-- /form-panel -->
+          </div>
+          <!-- /col-lg-12 -->
+        </div>
+      
+        <!-- /row -->
+      </section>
+      <!-- /wrapper -->
+    </section>
+    <!--main content end-->
+    <!--footer start-->
+    <footer class="site-footer">
+      <div class="text-center">
+        <p>
+          &copy; Copyrights <strong>Abhi</strong>. All Rights Reserved
+        </p>
+        <a href="index.html#" class="go-top">
+          <i class="fa fa-angle-up"></i>
+          </a>
+      </div>
+    </footer>
+    <!--footer end-->
+  </section>
+  <!-- js placed at the end of the document so the pages load faster -->
+  <% include partials/template/tem_footerScripts.ejs %>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+
+  
+      $('#cancel').click(function(){
+        $('#signupForm')[0].reset();
+      });
+
+      $('#submit').click(function(event){
+		
+	      event.preventDefault();
+		
+				var form = $("#signupForm");
+				form.validate({
+					errorElement: 'span',
+					errorClass: 'help-block',
+					highlight: function(element, errorClass, validClass) {
+						$(element).closest('.divFormField').addClass("has-error");
+					},
+					unhighlight: function(element, errorClass, validClass) {
+						$(element).closest('.divFormField').removeClass("has-error");
+					},
+					rules: {
+						fname: {
+							required: true,
+						},
+						lname: {
+							required: true,
+						},
+						dob: {
+							required: true,
+						},
+						address: {
+							required: true,
+						},
+						desc: {
+							required: true,
+						},
+						phone: {
+              required: true,
+						  number: true
+            },
+						email: {
+							required: true,
+							email:true,
+						},
+						
+					//rules	
+					},
+					messages: {
+						fname: {
+							required: 'Required'
+						},
+						lname: {
+							required: 'Required'
+						},
+						dob: {
+							required: 'Required'
+						},
+						address: {
+							required: 'Required'
+						},
+						desc: {
+							required: 'Required'
+						},
+						phone: {
+              required: 'Required',
+						  number: 'Invalid format'
+            },
+						email: {
+							required: 'Required',
+							email:'Invalid format'
+						},
+						
+					//rules	
+					}
+				});
+				if (form.valid() === true){
+					
+					var name = $('#name').val();
+					var attachment = $('#attachment').val();
+					var message = $('#message').val();
+					var phone = $('#phone').val();
+					var email = $('#email').val();
+					
+					//alert(selection);
+					
+					$('#enquiry_form').html('Processing...<br><img src="images/loading.gif" style="width: 30%;"/>');
+					
+					$.ajax({
+						url:'ajax_process_contact.php',
+						type:'POST',
+						data:'name='+name+'&attachment='+attachment+'&message='+message+'&phone='+phone+'&email='+email,
+						
+						
+						success:function(data){
+							//alert(data);
+							if(data == 1){
+								$('#enquiry_form').html('<div style="width: 50%;padding:10px;color: #FFFFFF;font-size: 18px;line-height: 26px;font-weight: 400; padding:10px; border:1px solid #FFFFFF;background-color: #3eae1f;border-radius: 4px;">Thank You so much for writing to us. Our Representative will get back to you in next 48 hours. </div>');
+								
+								/** setTimeout(function(){ 
+								window.location.reload();
+								}, 5000); **/
+								
+							}else{
+								$('#enquiry_form').html('Form submission failed.');
+							}
+							
+						}
+						
+					});
+				}
+			});
+    });
+  </script>
+</body>
+
+</html>
